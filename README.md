@@ -1,5 +1,9 @@
 # Twinkle::Client
 
+[![Code Climate](https://codeclimate.com/github/bibendi/twinkle-client/badges/gpa.svg)](https://codeclimate.com/github/bibendi/twinkle-client)
+[![Test Coverage](https://codeclimate.com/github/bibendi/twinkle-client/badges/coverage.svg)](https://codeclimate.com/github/bibendi/twinkle-client/coverage)
+[![Build Status](https://travis-ci.org/bibendi/twinkle-client.svg?branch=master)](https://travis-ci.org/bibendi/twinkle-client)
+
 A ruby client for Twinkle notification service.
 
 ## Installation
