@@ -38,11 +38,7 @@ module Twinkle
 
     def self.post(path, params = {})
       add_default_params(params)
-      http = Curl.post(resource(path), params) do |client|
-        client.headers["Content-Type"] = "application/json"
-      end
-
-      http.body_str
+      Curl.post(resource(path), params).body_str
     end
 
     def self.add_default_params(params)
