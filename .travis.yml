@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.3.0
+addons:
+  code_climate:
+    repo_token: 1234asdfasdf
+before_install: gem install bundler -v 1.11.2
+before_script: bin/install
+script: bundle exec rake spec
