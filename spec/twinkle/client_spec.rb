@@ -34,7 +34,7 @@ describe Twinkle::Client do
       stub_request(:post, "http://example.com/messages").
         with(:body => "channel=channel&message=formatted-message&token=token")
 
-      described_class.create_message("channel", "message", formatter: ->(message) { "formatted-#{message}" })
+      described_class.create_message("channel", "message", formatter: ->(message, options) { "formatted-#{message}" })
     end
 
     it "uses a formatter from config" do
@@ -42,10 +42,10 @@ describe Twinkle::Client do
         with(:body => "channel=channel&message=formatted-message&token=token")
 
       described_class.configure do |c|
-        c.formatter = ->(message) { "formatted-#{message}" }
+        c.formatter = ->(message, options) { "formatted-#{message}" }
       end
 
-      described_class.create_message("channel", "message", formatter: ->(message) { "formatted-#{message}" })
+      described_class.create_message("channel", "message")
     end
   end
 end

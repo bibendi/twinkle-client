@@ -24,5 +24,11 @@ describe Twinkle::Client::DefaultFormatter do
         expect(described_class.call(error)).to eq "message\n1\n2"
       end
     end
+
+    context "when hashtags provided" do
+      it "returns message with hashtags" do
+        expect(described_class.call("message", hashtags: ["#tag1", "#tag2"])).to eq "message\n#tag1 #tag2"
+      end
+    end
   end
 end

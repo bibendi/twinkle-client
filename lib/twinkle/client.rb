@@ -27,9 +27,10 @@ module Twinkle
     # message - String|Exception A text message or failure object
     # options - Hash
     #           :formatter - Proc A formatter block (default: :simple)
+    #           :hashtags  - Array A message hashtags words started with # (optional)
     def self.create_message(channel, message, options = {})
       formatter = options.fetch(:formatter, config.formatter)
-      message = formatter.call(message)
+      message = formatter.call(message, options)
 
       post "/messages", channel: channel, message: message
     end

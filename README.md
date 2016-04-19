@@ -36,8 +36,8 @@ end
 
 ```ruby
 Twinkle::Client.create_message("deploy", "Release!")
-
 Twinkle::Client.create_message("sadness", exception)
+Twinkle::Client.create_message("sadness", exception, hashtags: ["#DailyImport"])
 ```
 
 ## Development
@@ -48,4 +48,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bibendi/twinkle-client.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bibendi/twinkle-clie
