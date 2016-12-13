@@ -1,5 +1,5 @@
-require "curb"
 require "twinkle/client/version"
+require "twinkle/client/http"
 require "twinkle/client/default_formatter"
 
 module Twinkle
@@ -12,13 +12,17 @@ module Twinkle
       end
     end
 
+    def self.http
+      @http ||= Http.new(config.endpoint, config.token)
+    end
+
     def self.configure
       yield config
     end
 
     def self.reset
-      @resources = nil
       @config = nil
+      @http = nil
     end
 
     # Send a message
@@ -32,23 +36,7 @@ module Twinkle
       formatter = options.fetch(:formatter, config.formatter)
       message = formatter.call(message, options)
 
-      post "/messages", channel: channel, message: message
-    end
-
-    private
-
-    def self.post(path, params = {})
-      add_default_params(params)
-      Curl.post(resource(path), params).body_str
-    end
-
-    def self.add_default_params(params)
-      params[:token] ||= config.token
-    end
-
-    def self.resource(path)
-      @resources ||= Hash.new({})
-      @resources[config.endpoint][path] ||= File.join(config.endpoint, path)
+      http.post "/messages", channel: channel, message: message
     end
   end
 end

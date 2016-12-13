@@ -5,9 +5,6 @@ SimpleCov.start do
   minimum_coverage 95
 end
 
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
-
 require 'twinkle/client'
 require 'webmock/rspec'
 
