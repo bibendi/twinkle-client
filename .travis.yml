@@ -1,9 +1,9 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.3.0
+  - 2.2.6
+  - 2.3.3
 addons:
   code_climate:
     repo_token: ddf20deeb83c1502bf853910191b995e869ada3c5e00996a14d1eedd355b1c55
-before_install: gem install bundler -v 1.11.2
+before_install: gem install bundler -v 1.13.6
 script: bundle exec rake spec
